@@ -38,10 +38,7 @@ fn main() {
     }
 
     let answer = format_text(
-        response.json::<serde_json::Value>().unwrap()["choices"][0]["text"]
-            .as_str()
-            .unwrap()
-            .to_string(),
+        response.json::<serde_json::Value>().unwrap()["choices"][0]["text"].to_string(),
     );
 
     spinner.stop_and_persist("✔".green().to_string().as_str(), answer);
