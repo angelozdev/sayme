@@ -60,7 +60,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         return Ok(());
     }
 
-    spinner = spinners::Spinner::new(spinners::Spinners::Dots12, "Running...\n".into());
+    spinner = spinners::Spinner::new(spinners::Spinners::Hamburger, "Running...".into());
     let output = run_code(code);
 
     match output {
@@ -91,7 +91,7 @@ fn build_prompt(prompt: String) -> String {
         _ => "",
     };
 
-    format!("{} {}: \n#!/bin/bash\n```bash\n\n", prompt, os_hint)
+    format!("{} {}:\n```bash\n#!/bin/bash\n", prompt, os_hint)
 }
 
 fn run_code(code: String) -> Result<Output, Box<dyn Error>> {
